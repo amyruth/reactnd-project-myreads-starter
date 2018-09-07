@@ -4,10 +4,17 @@ import BooksApp from './App'
 class Book extends Component {
 	render() {
 		return (
-			<div>
-				<h1>This is a best of the Book component.</h1>
-			
-			</div>
+			<li>
+				<div className='book'>
+					<div className='book-top'>
+						<div className='book-cover'
+						style={{width:{this.props.books.width}
+						{height: this.props.books.height}
+						{backgroundImage: this.props.books[i].imageLinks.smallThumbnail}
+						}}
+					</div>
+				</div>
+			</li>
 		);
 	}
 }

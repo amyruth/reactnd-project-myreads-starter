@@ -1,7 +1,7 @@
-import React from 'react'
-import * as BooksAPI from './BooksAPI'
-import './App.css'
-
+import React from 'react';
+import * as BooksAPI from './BooksAPI';
+import './App.css';
+import Header from './Header';
 
 class BooksApp extends React.Component {
   state = {
@@ -17,12 +17,12 @@ class BooksApp extends React.Component {
 
   componentDidMount() {
 	  BooksAPI.getAll()
-	  .then((books) => {
-		  this.setState({books});
-		  console.log(books);
-	  })
-		
+	  .then((booksfromserver) => {
+		  this.setState({books: booksfromserver});
+		  console.log(this.state.books);
+	  })	
 }
+
 
   render() {
 
@@ -52,7 +52,9 @@ class BooksApp extends React.Component {
         ) : (
           <div className="list-books">
             <div className="list-books-title">
-              <h1>MyReads</h1>
+			{  /*<h1>MyReads</h1>*/}
+				<Header />
+				
             </div>
             <div className="list-books-content">
               <div>
