@@ -3,7 +3,9 @@ import BooksApp from './App';
 
 const Header = () => {
 	return (
-		<h1>MyReads</h1>
+		<div className="list-books-title">
+			<h1>MyReads Is A Lot</h1>
+        </div>
 	)
 }
 
