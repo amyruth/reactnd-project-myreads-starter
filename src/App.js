@@ -16,8 +16,8 @@ class BooksApp extends React.Component {
      * users can use the browser's back and forward buttons to navigate between
      * pages, as well as provide a good URL they can bookmark and share.
      */
-	showSearchPage: false,
-	books: []
+		showSearchPage: false,
+		books: []
   }
 
   componentDidMount() {
@@ -26,53 +26,33 @@ class BooksApp extends React.Component {
 		  this.setState({books: booksfromserver});
 		  console.log(this.state.books);
 	  })	
-}
+	}
 
-  render() {
+	render() {
 
-    return (
-      <div className="app">
-			
-        {this.state.showSearchPage ? (
-          <div className="search-books">
-            <div className="search-books-bar">
-              <a className="close-search" onClick={() => this.setState({ showSearchPage: false })}>Close</a>
-              <div className="search-books-input-wrapper">
-                <input type="text" placeholder="Search by title or author"/>
-              </div>
-            </div>
-            <div className="search-books-results">
-              <ol className="books-grid"></ol>
-            </div>
-          </div>
-        ) : (
-			<div className="list-books">
-				<Header />
+		return (
+			<div className="app">
+				<div className="list-books">
+						<Header />
 
-            <div className="list-books-content">
-              <div className="shelf-holder">
-				  { /*shelf start*/ }
-                <Shelf />
-				{ /*end shelf 1*/ }
+					<div className="list-books-content">
 
-				  { /*shelf start*/ }
-                <Shelf />
+						<div className="shelf-holder">
 
-				{ /*shelf start*/ }
-				<Shelf />
-				{/* end shelf */}
-			  </div> { /*end shelf-holderr*/ }
-			  
-            </div> { /*end list-books-content */}
+								<Shelf />
 
-			{/* start search button */}
-				<OpenSearchBtn />
-          </div> //list books end
-		 
-        )}
-      </div> //end app
-    )
+								<Shelf />
+
+								<Shelf />
+						</div> { /*end shelf-holderr*/ }
+					
+					</div> { /*end list-books-content */}
+
+					<OpenSearchBtn />
+				</div>  { /* end list-books */}
+  		</div> //end app
+		);
+	}
   }
-}
 
 export default BooksApp;
