@@ -32,25 +32,8 @@ class BooksApp extends React.Component {
 
 		return (
 			<div className="app">
-				<div className="list-books">
-						<Header />
-
-					<div className="list-books-content">
-
-						<div className="shelf-holder">
-
-								<Shelf />
-
-								<Shelf />
-
-								<Shelf />
-						</div> { /*end shelf-holderr*/ }
-					
-					</div> { /*end list-books-content */}
-
-					<OpenSearchBtn />
-				</div>  { /* end list-books */}
-  		</div> //end app
+				<MainPage />
+  			</div> //end app
 		);
 	}
   }
