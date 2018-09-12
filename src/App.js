@@ -22,8 +22,7 @@ class BooksApp extends React.Component {
   componentDidMount() {
 	BooksAPI.getAll()
 	.then((books) => {
-		this.setState({ books: books });
-		console.log(this.state.books);
+		this.setState({ books });
 	})	
   }
 
@@ -51,8 +50,8 @@ class BooksApp extends React.Component {
                     <ol className="books-grid">
 						{this.state.books.filter((book) => book.shelf === 'currentlyReading')
 						.map((book) => (
-							<li>
-								<Book key={book.id} books={this.state.books} />
+							<li key={book.id}>
+								<Book book={book} />
 							</li>
 						))
 						}
@@ -68,8 +67,8 @@ class BooksApp extends React.Component {
                     <ol className="books-grid">
 						{this.state.books.filter((book) => book.shelf === 'wantToRead')
 							.map((book) => (
-								<li>
-									<Book key={book.id} books={this.state.books} />
+								<li key={book.id}>
+									<Book books={this.state.books} />
 								</li>
 							))
 							}
@@ -85,8 +84,8 @@ class BooksApp extends React.Component {
                     <ol className="books-grid">
 						{this.state.books.filter((book) => book.shelf === 'read')
 							.map((book) => (
-								<li>
-									<Book key={book.id} books={this.state.books} />
+								<li key={book.id}>
+									<Book books={this.state.books} />
 								</li>
 							))
 							}
