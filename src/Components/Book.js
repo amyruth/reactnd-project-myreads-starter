@@ -5,8 +5,6 @@ import BookMenu from './BookMenu';
 class Book extends Component {
 
 	render() {
-		console.log(this.props.book.shelf);
-		
 
 		return (
 		
