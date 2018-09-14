@@ -17,6 +17,8 @@ class BooksApp extends React.Component {
      */
 	showSearchPage: false,
 	books: [],
+
+	
   }
 
   componentDidMount() {
@@ -27,13 +29,12 @@ class BooksApp extends React.Component {
   }
 
   changeShelfHandler(book, shelf) {
-	  console.log(arguments.length);
-	  BooksAPI.update(book, shelf)
-	  .then( (updatedBooks) => BooksAPI.getAll()
-	  .then( (books) => this.setState({books})
-	  .catch( (error) => console.log("Books not updated " + error))
-	  ))
+	  console.log(this);
+	  BooksAPI.update(book, shelf);
+	  BooksAPI.getAll()
+	  .then( books => this.setState({books}))
   }
+
   render() {
 
     return (
