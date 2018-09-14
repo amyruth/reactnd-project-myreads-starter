@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import BookMenu from './BookMenu';
+
 class Book extends Component {
 
 	render() {
@@ -13,7 +14,7 @@ class Book extends Component {
 				<div className="book-top">
 				<div className="book-cover" style={{ width: 128, height: 174, backgroundImage: `url(${this.props.book.imageLinks.thumbnail})`}}></div>
 
-				<BookMenu shelf={this.props.book.shelf} changeShelfHandler={this.props.changeShelfHandler} />
+				<BookMenu shelf={this.props.book.shelf} changeShelfHandler={this.props.changeShelfHandler} book={this.props.book} />
 						
 				
 				</div>

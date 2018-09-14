@@ -27,13 +27,13 @@ class BooksApp extends React.Component {
   }
 
   changeShelfHandler(book, shelf) {
-	BooksAPI.update(book, shelf);
-	BooksAPI.getAll()
-	.then((books) => {
-		this.setState({books});
-	});
+	  console.log(arguments.length);
+	  BooksAPI.update(book, shelf)
+	  .then( (updatedBooks) => BooksAPI.getAll()
+	  .then( (books) => this.setState({books})
+	  .catch( (error) => console.log("Books not updated " + error))
+	  ))
   }
-
   render() {
 
     return (

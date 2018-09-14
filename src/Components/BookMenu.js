@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class BookMenu extends Component {
 
@@ -7,7 +8,7 @@ class BookMenu extends Component {
 		return (
 			<div className="book-shelf-changer">
 
-			<select value={this.props.shelf} onChange={(event) => this.props.changeShelfHandler(this.props.book, event.target.value)}>
+			<select value={this.props.shelf} onChange={(e) => this.props.changeShelfHandler(this.props.book, e.target.value)}>
 				<option value="move" disabled>Move to...</option>
 				<option value="currentlyReading">Currently Reading</option>
 				<option value="wantToRead">Want to Read</option>
@@ -18,6 +19,11 @@ class BookMenu extends Component {
 			</div>
 		);
 	}
+}
+
+BookMenu.propTypes = {
+	value: PropTypes.string,
+	changeShelfHandler: PropTypes.func
 }
 
 export default BookMenu;
