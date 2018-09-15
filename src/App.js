@@ -17,8 +17,7 @@ class BooksApp extends React.Component {
      */
 	showSearchPage: false,
 	books: [],
-
-	
+	searchQuery: ''
   }
 
   componentDidMount() {
@@ -28,20 +27,33 @@ class BooksApp extends React.Component {
 	})	
   }
 
-  changeShelfHandler(book, shelf) {
-	  console.log(this);
-	  BooksAPI.update(book, shelf);
-	  BooksAPI.getAll()
-	  .then( books => this.setState({books}))
+// Note to self:  I had this written as a regular function and received setState is not a function errors but it would still work. Thank you Forrest in the Slack room for telling me to make this an arrow function. I guess it keeps this in the right conttext? 
+
+  changeShelfHandler = (book, shelf)=> {
+	  BooksAPI.update(book, shelf)
+	  .then(() => BooksAPI.getAll())
+	  .then(books => this.setState({books}))	
+  }
+
+  searchBooks = (query) => {
+	  console.log(query);
+	  this.setState({searchQuery: query});
+	  BooksAPI.search(query)
+	  .then( (books) => {
+		  console.log(books);
+	  })
   }
 
   render() {
 
+	let filtered
     return (
       <div className="app">
 
         {this.state.showSearchPage ? (
-			<SearchPage />
+			<SearchPage 
+			searchQuery={this.state.searchQuery} 
+			searchBooks={this.searchBooks} />
         ) : (
           <div className="list-books">
 
