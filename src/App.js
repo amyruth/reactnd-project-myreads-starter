@@ -38,13 +38,18 @@ class BooksApp extends React.Component {
 
 //   TODO: Fix error on empty search
   searchBooks = (query) => {
-	  console.log(query);
-	  this.setState({searchQuery: query});
-	  BooksAPI.search(query)
-	  .then( (books) => {
-		  console.log(books);
-		  this.setState({searchResults: books})
-	  })
+	if(query) {
+		console.log(query);
+		this.setState({searchQuery: query});
+		BooksAPI.search(query)
+		.then( (books) => {
+			console.log(books);
+			this.setState({searchResults: books})
+		})
+	} else {
+		this.setState({searchQuery: '', searchResults: []});
+
+	}
   }
 
   render() {

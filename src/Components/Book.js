@@ -24,10 +24,10 @@ class Book extends Component {
 	
 	}
 
-		Book.propTypes = {
-			authors: PropTypes.array,
-			book: PropTypes.object.isRequired,
-			title: PropTypes.string
-		};
+	Book.propTypes = {
+		authors: PropTypes.array,
+		book: PropTypes.object.isRequired,
+		title: PropTypes.string
+	};
 
 	export default Book;

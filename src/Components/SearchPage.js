@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as BooksAPI from '../BooksAPI';
 import Book from './Book';
+import PropTypes from 'prop-types';
 
 class SearchPage extends Component {
 	
@@ -39,6 +40,10 @@ class SearchPage extends Component {
           </div>
 		);
 	}
+
 }
+		SearchPage.propTypes = {
+			searchResults: PropTypes.array.isRequired
+		};
 
 export default SearchPage;
