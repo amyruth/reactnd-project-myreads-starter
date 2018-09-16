@@ -36,6 +36,7 @@ class BooksApp extends React.Component {
 	  .then(books => this.setState({books}))	
   }
 
+//   TODO: Fix error on empty search
   searchBooks = (query) => {
 	  console.log(query);
 	  this.setState({searchQuery: query});
