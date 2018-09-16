@@ -17,7 +17,8 @@ class BooksApp extends React.Component {
      */
 	showSearchPage: false,
 	books: [],
-	searchQuery: ''
+	searchQuery: '',
+	searchResults: []
   }
 
   componentDidMount() {
@@ -41,19 +42,21 @@ class BooksApp extends React.Component {
 	  BooksAPI.search(query)
 	  .then( (books) => {
 		  console.log(books);
+		  this.setState({searchResults: books})
 	  })
   }
 
   render() {
-
-	let filtered
+	
     return (
       <div className="app">
 
         {this.state.showSearchPage ? (
 			<SearchPage 
 			searchQuery={this.state.searchQuery} 
-			searchBooks={this.searchBooks} />
+			searchBooks={this.searchBooks}
+			searchResults={this.state.searchResults}
+			books={this.state.books} />
         ) : (
           <div className="list-books">
 

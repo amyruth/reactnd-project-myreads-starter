@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import * as BooksAPI from '../BooksAPI';
+import Book from './Book';
 
 class SearchPage extends Component {
+	
 	render() {
 		return (
 			<div className="search-books">
@@ -22,10 +24,18 @@ class SearchPage extends Component {
 
 					</div>
 				</div>
-				
-				<div className="search-books-results">
-					<ol className="books-grid"></ol>
-				</div>
+
+			<div className="search-books-results">
+				<ol className="books-grid">
+					{this.props.searchResults.map( (book) => 
+					(
+						<li key={book.id}>
+							<Book book={book}
+							changeShelfHandler={this.props.changeShelfHandler} />
+						</li>
+					))}
+				</ol>
+			</div>
           </div>
 		);
 	}
