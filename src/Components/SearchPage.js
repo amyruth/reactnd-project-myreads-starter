@@ -28,6 +28,7 @@ class SearchPage extends Component {
 
 			<div className="search-books-results">
 				<ol className="books-grid">
+					
 					{this.props.searchResults.map( (book) => 
 					(
 						<li key={book.id}>
