@@ -28,7 +28,7 @@ class SearchPage extends Component {
 			{/* seems to work with nonesense and empty queries w/o crashing unless I type too fast? */}
 			<div className="search-books-results">
 				<ol className="books-grid">
-					{this.props.searchResults.length > 0 &&
+					{this.props.searchQuery !== '' &&
 						this.props.searchResults.map( (book) => 
 					(
 						<li key={book.id}>
