@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Header from './Header';
-import Book from './/Book';
+import Book from './Book';
 import { Link } from 'react-router-dom';
 
 
@@ -66,7 +66,7 @@ class Main extends Component {
 				</div>
 
 				<div className="open-search">
-					<Link to='/search'>
+					<Link to='/searchpage'>
 						Add a book
 					</Link>
 				</div>
