@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 class SearchPage extends Component {
-	
+	//coment
 	render() {
 		return (
 			<div className="search-books">
@@ -22,12 +22,13 @@ class SearchPage extends Component {
 				<ol className="books-grid">
 					{this.props.searchQuery !== '' &&
 						this.props.searchResults.map( (book) => 
-					(
-						<li key={book.id}>
-							<Book book={book}
-							changeShelfHandler={this.props.changeShelfHandler} />
-						</li>
-					))}
+						(
+							<li key={book.id}>
+								<Book book={book}
+								changeShelfHandler={this.props.changeShelfHandler} />
+							</li>
+						))
+					}
 				</ol>
 			</div>
           </div>
