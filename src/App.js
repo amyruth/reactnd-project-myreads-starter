@@ -41,19 +41,21 @@ class BooksApp extends React.Component {
 		this.searchBooks(query);
 	}
 
-//   TODO: Fix error on empty search
-  searchBooks = (query) => {
-	if(query) {
-		BooksAPI.search(query)
-		.then( (books) => {
-			console.log(books);
-			this.setState({searchResults: books})
-		})
-	}else {
-		this.setState({searchQuery: '', searchResults: []})
+	searchBooks = (query) => {
+		if(query) {
+			BooksAPI.search(query)
+			.then( (searchResults) => {
+				if(searchResults.error) {
+					this.setState({searchResults: []})
+				}else{
+				console.log(searchResults);
+				this.setState({searchResults})
+				}
+			})
+		} 
 	}
-	
-  }
+
+  
 
   render() {
 	
@@ -63,10 +65,12 @@ class BooksApp extends React.Component {
         {this.state.showSearchPage ? (
 			<SearchPage 
 			searchQuery={this.state.searchQuery} 
-			searchBooks={this.searchBooks}
 			searchResults={this.state.searchResults}
 			books={this.state.books}
-			setQuery={this.setQuery} />
+			changeShelfHandler={this.change}
+			searchBooks={this.searchBooks}
+			setQuery={this.setQuery} 
+			/>
         ) : (
           <div className="list-books">
 

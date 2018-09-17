@@ -5,12 +5,13 @@ import BookMenu from './BookMenu';
 class Book extends Component {
 
 	render() {
-
+		let showThumbnail = this.props.book.imageLinks ? this.props.book.imageLinks.thumbnail : '';
+		
 		return (
 		
 			<div className="book">
 				<div className="book-top">
-					<div className="book-cover" style={{ width: 128, height: 174, backgroundImage: `url(${this.props.book.imageLinks.thumbnail})`}}></div>
+					<div className="book-cover" style={{ width: 128, height: 174, backgroundImage: `url(${showThumbnail})`}}></div>
 
 					<BookMenu shelf={this.props.book.shelf} changeShelfHandler={this.props.changeShelfHandler} book={this.props.book} />
 				</div>
