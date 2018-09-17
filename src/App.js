@@ -63,32 +63,34 @@ class BooksApp extends React.Component {
     return (
       <div className="app">
 		
-        {this.state.screen === 'search' && (
-			<SearchPage 
-			searchQuery={this.state.searchQuery} 
-			searchResults={this.state.searchResults}
-			books={this.state.books}
-			changeShelfHandler={this.changeShelfHandler}
-			searchBooks={this.searchBooks}
-			setQuery={this.setQuery} 
-			/>
-        )} 
+       <Route path='/searchpage' render={() => (
+		   	<SearchPage 
+			   searchQuery={this.state.searchQuery} 
+			   searchResults={this.state.searchResults}
+			   books={this.state.books}
+			   changeShelfHandler={this.changeShelfHandler}
+			   searchBooks={this.searchBooks}
+			   setQuery={this.setQuery}
+			   screen={this.state.screen}
+		   />
+	   )} />
+		
+        
 
-		{this.state.screen === 'shelf' && (
-
-			<div className="list-books">
+		<Route path='/' render={() => (
+				<div className="list-books">
 
 				{/* start header */}
-            	<Header />
+				<Header />
 
-            <div className="list-books-content">
-              <div>
-					  {/* start bookshelf */}
+			<div className="list-books-content">
+			<div>
+					{/* start bookshelf */}
 
-                <div className="bookshelf">
-                  <h2 className="bookshelf-title">Currently Reading</h2>
-                  <div className="bookshelf-books">
-                    <ol className="books-grid">
+				<div className="bookshelf">
+				<h2 className="bookshelf-title">Currently Reading</h2>
+				<div className="bookshelf-books">
+					<ol className="books-grid">
 						{this.state.books.filter((book) => book.shelf === 'currentlyReading')
 						.map((book) => (
 							<li key={book.id}>
@@ -96,16 +98,16 @@ class BooksApp extends React.Component {
 							</li>
 						))
 						}
-                    </ol>
-                  </div>
-                </div>
+					</ol>
+				</div>
+				</div>
 
 
 
-                <div className="bookshelf">
-                  <h2 className="bookshelf-title">Want to Read</h2>
-                  <div className="bookshelf-books">
-                    <ol className="books-grid">
+				<div className="bookshelf">
+				<h2 className="bookshelf-title">Want to Read</h2>
+				<div className="bookshelf-books">
+					<ol className="books-grid">
 						{this.state.books.filter((book) => book.shelf === 'wantToRead')
 							.map((book) => (
 								<li key={book.id}>
@@ -113,16 +115,16 @@ class BooksApp extends React.Component {
 								</li>
 							))
 							}
-                    </ol>
-                  </div>
-                </div>
+					</ol>
+				</div>
+				</div>
 
 
 
-                <div className="bookshelf">
-                  <h2 className="bookshelf-title">Read</h2>
-                  <div className="bookshelf-books">
-                    <ol className="books-grid">
+				<div className="bookshelf">
+				<h2 className="bookshelf-title">Read</h2>
+				<div className="bookshelf-books">
+					<ol className="books-grid">
 						{this.state.books.filter((book) => book.shelf === 'read')
 							.map((book) => (
 								<li key={book.id}>
@@ -130,27 +132,28 @@ class BooksApp extends React.Component {
 								</li>
 							))
 							}
-                      
-                    </ol>
-                  </div>
-                </div>
-              </div>
-            </div>
+					
+					</ol>
+				</div>
+				</div>
+			</div>
+			</div>
 
 
-            <div className="open-search">
-				  <Link to='/search'>
-				  	Add a book
-				  </Link>
-            </div>
+			<div className="open-search">
+			<a onClick={() => this.setState({ screen: 'search' })}>Add a book</a>
+			</div>
 
 			
-          </div> //end list-books
-        )}
+			</div> //end list-books
+		)} />
+
+			
+      
       </div> //end app
 							
     );
   }
 }
 
-export default BooksApp
+export default BooksApp;
