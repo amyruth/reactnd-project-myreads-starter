@@ -6,7 +6,7 @@ class Book extends Component {
 
 	render() {
 		let showThumbnail = this.props.book.imageLinks ? this.props.book.imageLinks.thumbnail : '';
-		
+	
 		return (
 		
 			<div className="book">
