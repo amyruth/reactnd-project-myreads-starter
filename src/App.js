@@ -31,9 +31,8 @@ class BooksApp extends React.Component {
 // Note to self:  I had this written as a regular function and received setState is not a function errors but it would still work. Thank you Forrest in the Slack room for telling me to make this an arrow function. I guess it keeps this in the right conttext? 
 
   changeShelfHandler = (book, shelf)=> {
-	  BooksAPI.update(book, shelf)
-	  .then(() => BooksAPI.getAll())
-	  .then(books => this.setState({books}))	
+	  BooksAPI.update(book, shelf);
+	  BooksAPI.getAll().then(books => this.setState({books}))	
   }
 
 	setQuery = (query) => {
@@ -68,7 +67,7 @@ class BooksApp extends React.Component {
 			searchQuery={this.state.searchQuery} 
 			searchResults={this.state.searchResults}
 			books={this.state.books}
-			changeShelfHandler={this.change}
+			changeShelfHandler={this.changeShelfHandler}
 			searchBooks={this.searchBooks}
 			setQuery={this.setQuery} 
 			/>
