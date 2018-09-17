@@ -3,8 +3,6 @@ import Header from './Header';
 import Book from './Book';
 import { Link } from 'react-router-dom';
 
-
-
 class Main extends Component {
 	render() {
 		return (
