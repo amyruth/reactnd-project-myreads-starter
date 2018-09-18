@@ -19,13 +19,11 @@ class Book extends Component {
 				</div>
 
 				<div className='book-title'>{this.props.book.title}</div>
-				<div className='book-authors'>{this.props.book.authors}</div>
-			</div>
-		
+				<div className='book-authors'>{this.props.book.authors ? this.props.book.authors : 'Unknown Author'}</div>
+			</div>	
 		);
 	}
-	
-	}
+}
 
 	Book.propTypes = {
 		authors: PropTypes.array,

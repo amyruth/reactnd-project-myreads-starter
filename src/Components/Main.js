@@ -8,12 +8,10 @@ class Main extends Component {
 		return (
 			<div className='list-books'>
 
-					{/* start header */}
 					<Header />
 
 				<div className='list-books-content'>
 				<div>
-						{/* start bookshelf */}
 
 					<div className='bookshelf'>
 					<h2 className='bookshelf-title'>Currently Reading</h2>
@@ -22,9 +20,11 @@ class Main extends Component {
 							{this.props.books.filter((book) => book.shelf === 'currentlyReading')
 							.map((book) => (
 								<li key={book.id}>
-									<Book book={book} 
-									changeShelfHandler={this.props.changeShelfHandler} 
-									currentShelf='currentlyReading' />
+									<Book 
+										book={book} 
+										changeShelfHandler={this.props.changeShelfHandler} 
+										currentShelf='currentlyReading' 
+									/>
 								</li>
 							))
 							}
@@ -39,9 +39,11 @@ class Main extends Component {
 							{this.props.books.filter((book) => book.shelf === 'wantToRead')
 								.map((book) => (
 									<li key={book.id}>
-										<Book book={book} 
-										changeShelfHandler={this.props.changeShelfHandler}
-										currentShelf='wantToRead' />
+										<Book 
+											book={book} 
+											changeShelfHandler={this.props.changeShelfHandler}
+											currentShelf='wantToRead' 
+										/>
 									</li>
 								))
 								}
@@ -56,9 +58,11 @@ class Main extends Component {
 							{this.props.books.filter((book) => book.shelf === 'read')
 								.map((book) => (
 									<li key={book.id}>
-										<Book book={book} 
-										changeShelfHandler={this.props.changeShelfHandler}
-										currentShelf='read' />
+										<Book 
+											book={book} 
+											changeShelfHandler={this.props.changeShelfHandler}
+											currentShelf='read' 
+										/>
 									</li>
 								))
 								}
@@ -75,7 +79,7 @@ class Main extends Component {
 					</Link>
 				</div>
 			
-		</div> //end list-books
+			</div> //end list-books
 		);
 	}
 }
