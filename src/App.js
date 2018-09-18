@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import * as BooksAPI from './BooksAPI';
 import SearchPage from './Components/SearchPage';
-import { Route } from "react-router-dom";
+import { Route } from 'react-router-dom';
 import Main from './Components/Main';
 
 class BooksApp extends React.Component {
@@ -55,7 +55,7 @@ class BooksApp extends React.Component {
   render() {
 	
     return (
-      <div className="app">
+      <div className='app'>
 		
        <Route path='/searchpage' render={() => (
 		   	<SearchPage 

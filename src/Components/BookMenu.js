@@ -9,7 +9,7 @@ class BookMenu extends Component {
 			<div className="book-shelf-changer">
 
 			<select onChange={ (e) => this.props.changeShelfHandler(this.props.book, e.target.value)}
-			value={this.props.book.shelf} >
+			value={this.props.currentShelf} >
 			
 				<option value="move" disabled>Move to...</option>
 				<option value="currentlyReading">Currently Reading</option>
