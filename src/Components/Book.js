@@ -24,7 +24,6 @@ class Book extends Component {
 		);
 	}
 }
-
 	Book.propTypes = {
 		authors: PropTypes.array,
 		book: PropTypes.object.isRequired,

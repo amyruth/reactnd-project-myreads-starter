@@ -20,7 +20,6 @@ class BooksApp extends React.Component {
 	})	
   }
 
-  
   changeShelfHandler = (book, shelf) => {
 	  BooksAPI.update(book, shelf);
 	  BooksAPI.getAll().then(books => {
