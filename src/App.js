@@ -9,6 +9,7 @@ class BooksApp extends React.Component {
   state = {
 	books: [],
 	searchQuery: '',
+	shelfChangeClicked: false,
 	searchResults: []
   }
 
@@ -19,9 +20,12 @@ class BooksApp extends React.Component {
 	})	
   }
 
-  changeShelfHandler = (book, shelf)=> {
+  
+  changeShelfHandler = (book, shelf) => {
 	  BooksAPI.update(book, shelf);
-	  BooksAPI.getAll().then(books => this.setState({books}))	
+	  BooksAPI.getAll().then(books => {
+		  this.setState({books})
+	  });
   }
 
 	setQuery = (query) => {
