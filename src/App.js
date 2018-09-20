@@ -31,14 +31,11 @@ class BooksApp extends React.Component {
 		// console.log(bookIndex);
 		
 		if(bookIndex !== -1){
-			oldState.map(oldBook => {
-				if(oldBook.id === book.id){
-					oldBook.shelf = shelf;
-				}
-				
-				this.setState({books: oldState});
-				// console.log('state set');
-			});
+			oldState[bookIndex].shelf = shelf;
+			this.setState({books: oldState});
+			console.log(this.state.books);
+			// console.log('state set');
+			
 		}else {
 			BooksAPI.getAll().then(books => this.setState({books: books}));
 			// console.log('getAll ran');
