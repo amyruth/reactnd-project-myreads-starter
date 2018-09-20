@@ -27,15 +27,13 @@ class BooksApp extends React.Component {
 
 		BooksAPI.update(book, shelf).then(result => console.log(result));
 		let bookIndex = oldState.findIndex(oldBook => oldBook.id === book.id);
-
 		// console.log(bookIndex);
-		
+	
 		if(bookIndex !== -1){
 			oldState[bookIndex].shelf = shelf;
 			this.setState({books: oldState});
 			console.log(this.state.books);
 			// console.log('state set');
-			
 		}else {
 			BooksAPI.getAll().then(books => this.setState({books: books}));
 			// console.log('getAll ran');
