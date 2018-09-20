@@ -13,42 +13,42 @@ class BooksApp extends React.Component {
 	searchResults: []
   }
 
-  componentDidMount() {
-	BooksAPI.getAll()
-	.then((books) => {
-		this.setState({ books });
-	})	
-  }
+	componentDidMount() {
+		BooksAPI.getAll()
+		.then((books) => {
+			this.setState({ books });
+		})	
+	};
 
-  changeShelfHandler = (book, shelf) => {
-	let oldState = this.state.books.map(book => book);
-	// console.log(oldState);
-	// console.log(book);
+	changeShelfHandler = (book, shelf) => {
+		let oldState = this.state.books.map(book => book);
+		// console.log(oldState);
+		// console.log(book);
 
-	BooksAPI.update(book, shelf).then(result => console.log(result));
-	let bookIndex = oldState.findIndex(oldBook => oldBook.id === book.id);
+		BooksAPI.update(book, shelf).then(result => console.log(result));
+		let bookIndex = oldState.findIndex(oldBook => oldBook.id === book.id);
 
-	// console.log(bookIndex);
-	
-	if(bookIndex !== -1){
-		oldState.map(oldBook => {
-			if(oldBook.id === book.id){
-				oldBook.shelf = shelf;
-			}
-			
-			this.setState({books: oldState});
-			// console.log('state set');
-		});
-	}else {
-		BooksAPI.getAll().then(books => this.setState({books: books}));
-		// console.log('getAll ran');
-	} 
-  }
+		// console.log(bookIndex);
+		
+		if(bookIndex !== -1){
+			oldState.map(oldBook => {
+				if(oldBook.id === book.id){
+					oldBook.shelf = shelf;
+				}
+				
+				this.setState({books: oldState});
+				// console.log('state set');
+			});
+		}else {
+			BooksAPI.getAll().then(books => this.setState({books: books}));
+			// console.log('getAll ran');
+		} 
+	};
 
 	setQuery = (query) => {
 		this.setState({searchQuery: query});
 		this.searchBooks(query);
-	}
+	};
 
 	searchBooks = (query) => {
 		if(query) {
@@ -61,7 +61,7 @@ class BooksApp extends React.Component {
 				}
 			})
 		} 
-	}
+	};
 
   render() {
 	
