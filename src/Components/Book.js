@@ -5,6 +5,7 @@ import BookMenu from './BookMenu';
 class Book extends Component {
 
 	render() {
+		//Shows image of book or stays blank
 		let showThumbnail = this.props.book.imageLinks ? this.props.book.imageLinks.thumbnail : '';
 	
 		return (
@@ -19,6 +20,7 @@ class Book extends Component {
 				</div>
 
 				<div className='book-title'>{this.props.book.title}</div>
+				{/* If the author is not found default to unknown author to prevent errors */}
 				<div className='book-authors'>{this.props.book.authors ? this.props.book.authors : 'Unknown Author'}</div>
 			</div>	
 		);

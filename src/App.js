@@ -21,14 +21,19 @@ class BooksApp extends React.Component {
 	};
 
 	changeShelfHandler = (book, shelf) => {
+		//copies the book list
 		let oldState = this.state.books.map(book => book);
 		// console.log(oldState);
 		// console.log(book);
 
+	
 		BooksAPI.update(book, shelf).then(result => console.log(result));
 		let bookIndex = oldState.findIndex(oldBook => oldBook.id === book.id);
 		// console.log(bookIndex);
-	
+		
+		// Run the update method, find the book to update
+		// If the book is found, update the shelf property and update state
+		// If the books is new getAll will update your shelves with the new books
 		if(bookIndex !== -1){
 			oldState[bookIndex].shelf = shelf;
 			this.setState({books: oldState});
@@ -45,6 +50,7 @@ class BooksApp extends React.Component {
 		this.searchBooks(query);
 	};
 
+	// If no search results found empty searchResults state, else update with the returned results
 	searchBooks = (query) => {
 		if(query) {
 			BooksAPI.search(query)
@@ -82,8 +88,7 @@ class BooksApp extends React.Component {
 				/>
 		)} />
 
-      </div> //end app
-							
+      </div> //end app						
     )
   }
 }

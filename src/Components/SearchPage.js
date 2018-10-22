@@ -14,7 +14,6 @@ class SearchPage extends Component {
 						<input type='text' 
 						placeholder='Search by title or author' value={this.props.searchQuery}
 						onChange={ (e) => this.props.setQuery(e.target.value)} />
-
 					</div>
 				</div>
 			
